@@ -12,19 +12,26 @@
           
           
 #Job2          
-      MakeMigrations:   
+      InstallDjangoVersion:
+        docker:
+            - checkout
+            - run: pip install django
+            
+
+#Job3
+    MakeMigrations:   
         docker:
             - image: cimg/python:3.11.3
         steps:
             - checkout
             - run: python3 manage.py makemigrations
-            
-            
+
 #Workflows     
     workflows:
       Test-Deploy:
         jobs:
         - Version_Check
-        - MakeMigrations:
+        - InstallDjangoVersion:
             requires:
                 - Version_Check
+        - MakeMigrations
