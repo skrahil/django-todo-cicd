@@ -21,12 +21,12 @@
             
 
 #Job3
-        Migrations:
-            docker:
-             - image: cimg/python:3.11.3
-            steps:
-                - checkout
-                - run: python3 --version
+      Migrations:
+        docker:
+         - image: cimg/python:3.11.3
+        steps:
+            - checkout
+            - run: python3 --version
 
 #Workflows     
     workflows:
