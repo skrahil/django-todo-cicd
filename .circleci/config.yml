@@ -25,3 +25,6 @@
       Test-Deploy:
         jobs:
         - Version_Check
+        - MakeMigrations:
+            requires:
+                - Version_Check
