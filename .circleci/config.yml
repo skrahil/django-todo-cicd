@@ -1,11 +1,26 @@
     version: 2.1
     jobs:
+    
+#Job1
       Version_Check:
         docker:
           - image: cimg/python:3.11.3
         steps:
           - checkout
           - run: python --version
+          
+          
+          
+#Job2          
+      MakeMigrations:   
+        docker:
+            - image: cimg/python:3.11.3
+        steps:
+            - checkout
+            - run: python3 manage.py makemigrations
+            
+            
+#Workflows     
     workflows:
       Test-Deploy:
         jobs:
