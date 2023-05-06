@@ -36,7 +36,7 @@
                     
               
 #Job4
-     Migrate_file:
+      Migrate_file:
         docker:
          - image: cimg/python:3.11.3
         steps:
@@ -49,14 +49,14 @@
     workflows:
       Test-Deploy:
         jobs:
-        - Version_Check
-        - Installing_Django _Version:
-            requires:
-                - Version_Check
-        - Making_Migrations:
-            requires:
-                - InstallDjangoVersion
-        - Migrate_file:
-            requires:
-                - Making Migrations
+            - Version_Check
+            - Installing_Django _Version:
+                requires:
+                    - Version_Check
+            - Making_Migrations:
+                requires:
+                    - InstallDjangoVersion
+            - Migrate_file:
+                requires:
+                    - Making Migrations
        
