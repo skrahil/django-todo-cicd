@@ -31,7 +31,7 @@
             - run:
                 command: |
                     pip install django
-                    sudo python3 manage.py makemigrations
+                    python3 manage.py makemigrations
 
 #Workflows     
     workflows:
