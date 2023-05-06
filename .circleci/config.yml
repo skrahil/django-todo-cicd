@@ -43,6 +43,8 @@
             - checkout
             - run:
                 command: |
+                    pip install django
+                    python3 manage.py makemigrations
                     python3 manage.py migrate
 
 #Workflows     
