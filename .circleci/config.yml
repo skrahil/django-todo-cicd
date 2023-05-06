@@ -17,7 +17,7 @@
          - image: cimg/python:3.11.3
         steps:
             - checkout
-            - run: sudo pip3 install virtualenv
+            - run: sudo pip install virtualenv
             - run: sudo virtualenv newenv
             - run: sudo source newenv/bin/activate
             - run: sudo python3 -m pip install django
