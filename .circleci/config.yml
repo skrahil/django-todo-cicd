@@ -17,7 +17,7 @@
          - image: cimg/python:3.11.3
         steps:
             - checkout
-            - run: pip install django
+            - run: python3 -m pip install django
             
 
 #Job3
