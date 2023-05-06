@@ -17,7 +17,10 @@
          - image: cimg/python:3.11.3
         steps:
             - checkout
-            - run: python3 -m pip install django
+            - run: sudo pip3 install virtualenv
+            - run: sudo virtualenv newenv
+            - run: sudo source newenv/bin/activate
+            - run: sudo python3 -m pip install django
             
 
 #Job3
@@ -26,7 +29,7 @@
          - image: cimg/python:3.11.3
         steps:
             - checkout
-            - run: python3 manage.py makemigrations
+            - run: sudo python3 manage.py makemigrations
 
 #Workflows     
     workflows:
