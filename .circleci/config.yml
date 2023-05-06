@@ -30,6 +30,7 @@
             - checkout
             - run:
                 command: |
+                    pip install django
                     sudo python3 manage.py makemigrations
 
 #Workflows     
