@@ -36,5 +36,7 @@
         - InstallDjangoVersion:
             requires:
                 - Version_Check
-        - Migrations
+        - Migrations:
+            requires:
+                - InstallDjangoVersion
        
