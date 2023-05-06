@@ -56,4 +56,7 @@
         - Making Migrations:
             requires:
                 - InstallDjangoVersion
+        - Migrate file:
+            requires:
+                - Making Migrations
        
