@@ -14,6 +14,8 @@
 #Job2          
       InstallDjangoVersion:
         docker:
+         - image: cimg/python:3.11.3
+        steps:
             - checkout
             - run: pip install django
             
