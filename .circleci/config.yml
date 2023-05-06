@@ -55,8 +55,8 @@
                     - Version_Check
             - Making_Migrations:
                 requires:
-                    - InstallDjangoVersion
+                    - Installing_Django _Version
             - Migrate_file:
                 requires:
-                    - Making Migrations
+                    - Making_Migrations
        
