@@ -41,8 +41,9 @@
          - image: cimg/python:3.11.3
         steps:
             - checkout
-            - command: |
-                python3 manage.py migrate
+            - run:
+                command: |
+                    python3 manage.py migrate
 
 #Workflows     
     workflows:
