@@ -46,6 +46,21 @@
                     pip install django
                     python3 manage.py makemigrations
                     python3 manage.py migrate
+                    
+                    
+                    
+#Job5
+      Running_Server:
+        docker:
+         - image: cimg/python:3.11.3
+        steps:
+            - checkout
+            - run:
+                command: |
+                    pip install django
+                    python3 manage.py makemigrations
+                    python3 manage.py migrate
+                    python3 manage.py runserver
 
 #Workflows     
     workflows:
@@ -61,4 +76,7 @@
             - Migrate_file:
                 requires:
                     - Making_Migrations
+            - Running_Server:
+                requires:
+                    - Migrate_file
        
