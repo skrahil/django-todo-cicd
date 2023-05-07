@@ -3,10 +3,10 @@
     jobs:
         Version:
             docker:
-                - image: cimg/python:3.11.3
+                - image: madhupdevops/python-django-app-image:latest
             steps:
                 - checkout
-                - run: docker build . -t todoapp
+                - run: echo "hello"
                        
               
     workflows:
