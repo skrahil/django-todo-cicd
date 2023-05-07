@@ -30,6 +30,7 @@
            - run: docker --version
            - run:
                 command: service docker status
+                command: service docker start
                 
            
 
