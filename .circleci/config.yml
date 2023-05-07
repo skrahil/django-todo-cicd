@@ -28,7 +28,8 @@
         steps:
            - checkout
            - run: docker --version
-           - docker pull hello-world
+           - command: | 
+            - run: docker pull hello-world
            
            
 #Job4 
@@ -38,8 +39,9 @@
         steps:
            - checkout
            - run: docker --version
-           - docker pull hello-world
-           - docker run hello-world
+           - command: | 
+            - run: docker pull hello-world
+            - run: docker run hello-world
                     
         
 
