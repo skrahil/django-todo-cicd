@@ -29,7 +29,7 @@
            - checkout
            - run: docker --version
            - run:
-                command: systemctl docker status
+                command: systemctl status docker
                 
            
 
@@ -41,7 +41,9 @@
       Test-Deploy:
         jobs:
             - Version_Check
-            - Checking_Docker
+            - Checking_Docker:
+                requires:
+                    - Version_Check 
             - Pulling_Docker_Hello_World:
                 requires:
                     - Checking_Docker
