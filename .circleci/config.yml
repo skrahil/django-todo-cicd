@@ -12,26 +12,27 @@
                 command: |
                         python --version
                         docker --version
-                        sudo apt-get install docker.io -y
-                     
-          
-          
-          
+                        
+      Docker_Build:
+        docker:
+          - image: cimg/python:3.11.3
+        steps:
+          - checkout
+          - run: 
+                name: python version
+                command: |
+                        python --version
+                        docker build . -t python_app               
 
-
-
-
-           
-
-                    
-        
 
 #Workflows     
     workflows:
       Test-Deploy:
         jobs:
             - Version_Check
-          
+            - Docker_Build:
+                requires:
+                    - Version_Check
             
           
        
