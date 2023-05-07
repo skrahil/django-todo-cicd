@@ -12,7 +12,7 @@
                 command: |
                         python --version
                         docker --version
-                        yum install docker
+                        apt-get install docker
                      
           
           
