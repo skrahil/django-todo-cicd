@@ -29,7 +29,7 @@
            - checkout
            - run: docker --version
            - run: 
-             command: docker pull hello-world
+                command: docker pull hello-world
            
 
                     
