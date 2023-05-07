@@ -29,7 +29,7 @@
            - checkout
            - run: docker --version
            - run:
-                command: systemctl status docker
+                command: service docker status
                 
            
 
