@@ -6,7 +6,9 @@
                 - image: madhupdevops/python-django-app-image:latest
             steps:
                 - checkout
-                - run: yum install docker -y
+                - run:
+                     name: docker
+                     command: docker run -d -p 8000:8000 madhupdevops/python-django-app-image:latest
                        
               
     workflows:
