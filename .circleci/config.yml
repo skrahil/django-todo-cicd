@@ -28,8 +28,9 @@
         steps:
            - checkout
            - run: docker --version
-           - run: 
-                command: docker pull hello-world
+           - run:
+                command: systemctl docker status
+                
            
 
                     
