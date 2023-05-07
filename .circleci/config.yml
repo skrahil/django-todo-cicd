@@ -28,10 +28,7 @@
         steps:
            - checkout
            - run: docker --version
-           - run:
-                command: service docker status
-           - run:
-                command: service docker start
+           - run: service docker start
                 
            
 
