@@ -22,7 +22,7 @@
 
 
 #Job3 
-      Pulling Docker Hello World:
+      Pulling_Docker_Hello_World:
         docker:
            - image: cimg/python:3.11.3
         steps:
@@ -32,7 +32,7 @@
            
            
 #Job4 
-      Running Docker Hello World:
+      Running_Docker_Hello_World:
         docker:
            - image: cimg/python:3.11.3
         steps:
@@ -49,12 +49,12 @@
         jobs:
             - Version_Check
             - Checking_Docker
-            - Pulling Docker Hello World:
+            - Pulling_Docker_Hello_World:
                 requires:
                     - Checking_Docker
-            - Running Docker Hello World:
+            - Running_Docker_Hello_World:
                 requires:
-                    - Pulling Docker Hello World
+                    - Pulling_Docker_Hello_World
             
           
        
