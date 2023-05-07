@@ -3,8 +3,8 @@
     
 #Job1
       Version_Check:
-        docker:
-          - image: cimg/python:3.11.3
+        machine: # executor type
+            image: ubuntu-2004:202010-01
         steps:
           - checkout
           - run: 
