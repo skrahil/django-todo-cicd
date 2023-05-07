@@ -11,74 +11,15 @@
           
           
           
-#Job2          
-      Installing_Django _Version:
-        docker:
-         - image: cimg/python:3.11.3
-        steps:
-            - checkout
-            - run:
-                command: |
-                    pip install django
-            
 
-#Job3
-      Making_Migrations:
-        docker:
-         - image: cimg/python:3.11.3
-        steps:
-            - checkout
-            - run:
-                command: |
-                    pip install django
-                    python3 manage.py makemigrations
                     
-                    
-              
-#Job4
-      Migrate_file:
-        docker:
-         - image: cimg/python:3.11.3
-        steps:
-            - checkout
-            - run:
-                command: |
-                    pip install django
-                    python3 manage.py makemigrations
-                    python3 manage.py migrate
-                    
-                    
-                    
-#Job5
-      Running_Server:
-        docker:
-         - image: cimg/python:3.11.3
-        steps:
-            - checkout
-            - run:
-                command: |
-                    pip uninstall django
-                    pip install django==2.1
-                    python3 manage.py makemigrations
-                    python3 manage.py migrate
-                    python3 manage.py createsuperuser
-                    python3 manage.py runserver
+        
 
 #Workflows     
     workflows:
       Test-Deploy:
         jobs:
             - Version_Check
-            - Installing_Django _Version:
-                requires:
-                    - Version_Check
-            - Making_Migrations:
-                requires:
-                    - Installing_Django _Version
-            - Migrate_file:
-                requires:
-                    - Making_Migrations
-            - Running_Server:
-                requires:
-                    - Migrate_file
+            
+          
        
