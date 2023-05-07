@@ -29,7 +29,7 @@
            - checkout
            - run: docker --version
            - command: | 
-            - run: docker pull hello-world
+             docker pull hello-world
            
            
 #Job4 
@@ -40,8 +40,8 @@
            - checkout
            - run: docker --version
            - command: | 
-            - run: docker pull hello-world
-            - run: docker run hello-world
+             docker pull hello-world
+             docker run hello-world
                     
         
 
