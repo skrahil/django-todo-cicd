@@ -12,7 +12,7 @@
                 command: |
                         python --version
                         docker --version
-                        service docker status
+                        systemctl status docker
           
           
           
