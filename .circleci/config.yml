@@ -18,7 +18,28 @@
         steps:
            - checkout
            - run: docker --version
+           
 
+
+#Job3 
+      Pulling Docker Hello World:
+        docker:
+           - image: cimg/python:3.11.3
+        steps:
+           - checkout
+           - run: docker --version
+           - docker pull hello-world
+           
+           
+#Job4 
+      Running Docker Hello World:
+        docker:
+           - image: cimg/python:3.11.3
+        steps:
+           - checkout
+           - run: docker --version
+           - docker pull hello-world
+           - docker run hello-world
                     
         
 
@@ -28,6 +49,12 @@
         jobs:
             - Version_Check
             - Checking_Docker
+            - Pulling Docker Hello World:
+                requires:
+                    - Checking_Docker
+            - Running Docker Hello World:
+                requires:
+                    - Pulling Docker Hello World
             
           
        
