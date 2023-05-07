@@ -22,6 +22,7 @@
                 name: python version
                 command: |
                         python --version
+                        sudo service docker start
                         docker build . -t python_app               
 
 
