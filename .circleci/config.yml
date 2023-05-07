@@ -1,39 +1,15 @@
+
     version: 2.1
     jobs:
-    
-#Job1
-      Version_Check:
-        machine: # executor type
-            image: ubuntu-2004:202010-01
-        steps:
-          - checkout
-          - run: 
-                name: python version
-                command: |
-                        python --version
-                        docker --version
-                        
-      Docker_Build:
-        docker:
-          - image: cimg/python:3.11.3
-        steps:
-          - checkout
-          - run: 
-                name: python version
-                command: |
-                        python --version
-                        sudo service docker start
-                        docker build . -t python_app               
-
-
-#Workflows     
+        Version:
+            docker:
+                - image: cimg/python:3.11.3
+            steps:
+                - checkout
+                - run: docker build . -t todoapp
+                       
+              
     workflows:
-      Test-Deploy:
-        jobs:
-            - Version_Check
-            - Docker_Build:
-                requires:
-                    - Version_Check
-            
-          
-       
+            Test:
+                jobs:
+                    - Version
