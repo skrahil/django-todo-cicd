@@ -11,6 +11,8 @@
                 name: python version
                 command: |
                         python --version
+                        docker --version
+                        service docker status
           
           
           
