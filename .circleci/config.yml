@@ -28,6 +28,7 @@
         steps:
            - checkout
            - run: docker --version
+           - run: sudo bash -c "echo \"limit nofile 262144 262144\" >> /etc/init/docker.conf"
            - run: sudo service docker start
                 
            
