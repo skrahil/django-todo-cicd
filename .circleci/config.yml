@@ -3,12 +3,14 @@
     jobs:
         Version:
             docker:
-                - image: madhupdevops/python-django-app-image:latest
+                - image: cimg/python:3.11.3
             steps:
                 - checkout
+                - setup_remote_docker:
+                     docker_layer_caching:true
                 - run:
                      name: docker
-                     command: docker run -d -p 8000:8000 madhupdevops/python-django-app-image:latest
+                     command: docker build .
                        
               
     workflows:
