@@ -11,8 +11,8 @@
                 - run:
                      name: docker
                      command: |
-                           docker build .
-                           docker run -d -p 8000:8000 83b46141e6c0
+                           docker build -t todoapp1 .
+                           
                      
                        
               
