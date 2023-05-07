@@ -12,11 +12,40 @@
                      name: docker
                      command: |
                            docker build -t todoapp1 .
-                           
+ 
+  #Dummy code starts                       
                      
-                       
-              
+        Test:
+            docker:
+                - image: cimg/python:3.11.3
+            steps:
+                - checkout
+                - run: echo "Testing the code..."               
+       
+        Build:
+            docker:
+                - image: cimg/python:3.11.3
+            steps:
+                - checkout
+                - run: echo "Building the code..." 
+        Deploy:
+            docker:
+                - image: cimg/python:3.11.3
+            steps:
+                - checkout
+                - run: echo "Deploying the code..."               
+                          
+                    
     workflows:
             Test:
                 jobs:
                     - Version
+                    - Test:
+                        requires:
+                            - Version 
+                    - Build:
+                        requires:
+                            - Test 
+                    - Deploy:
+                        requires:
+                            - Build 
