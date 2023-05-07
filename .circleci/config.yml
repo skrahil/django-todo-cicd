@@ -7,30 +7,17 @@
           - image: cimg/python:3.11.3
         steps:
           - checkout
-          - run: python --version
+          - run: 
+                name: python version
+                command: |
+                        python --version
           
           
           
-#Job2 
-      Checking_Docker:
-        docker:
-           - image: cimg/python:3.11.3
-        steps:
-           - checkout
-           - run: docker --version
-           
 
 
-#Job3 
-      Pulling_Docker_Hello_World:
-        docker:
-           - image: cimg/python:3.11.3
-        steps:
-           - checkout
-           - run: docker --version
-           - run: sudo bash -c "echo \"limit nofile 262144 262144\" >> /etc/init/docker.conf"
-           - run: sudo service docker start
-                
+
+
            
 
                     
@@ -41,12 +28,7 @@
       Test-Deploy:
         jobs:
             - Version_Check
-            - Checking_Docker:
-                requires:
-                    - Version_Check 
-            - Pulling_Docker_Hello_World:
-                requires:
-                    - Checking_Docker
+          
             
           
        
