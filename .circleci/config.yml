@@ -12,7 +12,7 @@
                 command: |
                         python --version
                         docker --version
-                        apt-get install docker
+                        sudo apt-get install docker
                      
           
           
