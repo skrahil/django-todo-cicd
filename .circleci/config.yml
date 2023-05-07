@@ -28,7 +28,7 @@
         steps:
            - checkout
            - run: docker --version
-           - run: service docker start
+           - run: sudo service docker start
                 
            
 
