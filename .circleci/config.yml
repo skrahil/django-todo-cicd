@@ -12,7 +12,8 @@
                 command: |
                         python --version
                         docker --version
-                        systemctl status docker
+                        yum install docker
+                     
           
           
           
