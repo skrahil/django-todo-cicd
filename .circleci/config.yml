@@ -52,7 +52,7 @@
             Schedule_workflow:
                 triggers:
                     - schedule:
-                        cron: " * * * * *"
+                        cron: "* * * * *"
                         filters:
                             branches: 
                                 only: 
