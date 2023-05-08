@@ -49,3 +49,7 @@
                     - Deploy:
                         requires:
                             - Build 
+            Schedule_workflow:
+                triggers:
+                    - schedule:
+                        cron: " * * * * *"
