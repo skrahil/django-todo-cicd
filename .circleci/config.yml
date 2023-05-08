@@ -49,13 +49,4 @@
                     - Deploy:
                         requires:
                             - Build 
-            workflow:
-                triggers:
-                    - schedule:
-                        cron: "* * * * *"
-                        filters:
-                            branches: 
-                                only: 
-                                   - develop
-                jobs:
-                 - Build
+            
