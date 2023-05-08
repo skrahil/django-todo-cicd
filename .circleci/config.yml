@@ -53,3 +53,9 @@
                 triggers:
                     - schedule:
                         cron: " * * * * *"
+                        filters:
+                            branches: 
+                                only: 
+                                   - main
+                jobs:
+                 - Build
