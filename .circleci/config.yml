@@ -1,52 +1,72 @@
+version: 2.1
+jobs:
+  Setting up docker and Python:
+    docker:
+      - image: cimg/python:3.11.3
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: echo "Checkng Docker version... "
+      - run:
+          command: |
+            docker --version
+      - run: echo "Checkng Python version... "
+      - run:
+          command: |
+            python --version
 
-    version: 2.1
-    jobs:
-        Version:
-            docker:
-                - image: cimg/python:3.11.3
-            steps:
-                - checkout
-                - setup_remote_docker:
-                     docker_layer_caching: true
-                - run:
-                     name: docker
-                     command: |
-                           docker build -t todoapp1 .
- 
-  #Dummy code starts                       
-                     
-        Test:
-            docker:
-                - image: cimg/python:3.11.3
-            steps:
-                - checkout
-                - run: echo "Testing the code..."               
-       
-        Build:
-            docker:
-                - image: cimg/python:3.11.3
-            steps:
-                - checkout
-                - run: echo "Building the code..." 
-        Deploy:
-            docker:
-                - image: cimg/python:3.11.3
-            steps:
-                - checkout
-                - run: echo "Deploying the code..."               
-                          
- #workflows                   
-    workflows:
-            Test:
-                jobs:
-                    - Version
-                    - Test:
-                        requires:
-                            - Version 
-                    - Build:
-                        requires:
-                            - Test 
-                    - Deploy:
-                        requires:
-                            - Build 
+  Checking for source code:
+    docker:
+      - image: cimg/python:3.11.3
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo "Source code received.."
+  
+  Python source code building:
+    docker:
+      - image: cimg/python:3.11.3
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo "Building source code..."
             
+  Python source code Testing:
+    docker:
+      - image: cimg/python:3.11.3
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo "Testing source code..."
+    
+          
+  Python source code Deploying:
+    docker:
+      - image: cimg/python:3.11.3
+    steps:
+      - checkout
+      - run:
+          command: |
+            echo "Deploying source code to production..."
+
+
+workflows:
+  test:
+    jobs:
+      - Setting up docker and Python
+      - Checking for source code:
+          requires:
+            - Setting up docker and Python
+      - Python source code building:
+          requires:
+            - Checking for source code
+      - Python source code Testing:
+          requires:
+            - Python source code building
+      - Python source code Deploying:
+          requires:
+            - Python source code Testing
