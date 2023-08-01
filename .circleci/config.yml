@@ -7,7 +7,7 @@ jobs:
       - checkout
       - setup_remote_docker:
           docker_layer_caching: true
-      - run: echo "Checkng Docker version... "
+      - run: echo "Checkng Docker version...... "
       - run:
           command: |
             docker --version
