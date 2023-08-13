@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: code checkout
     - uses: actions/checkout@v1
+    - name: code checkout
       run: |
         echo "Hi I am Madhup pandey and i have my ${{ secrets.MyPass }}. Successfully GitHub Action"
