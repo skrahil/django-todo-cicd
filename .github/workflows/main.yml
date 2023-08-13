@@ -12,4 +12,4 @@ jobs:
     - name: code checkout
     - uses: actions/checkout@v1
       run: |
-        echo "Successfully GitHub Action"
+        echo "Hi I am Madhup pandey and i have my ${{ secrets.MyPass }}. Successfully GitHub Action"
