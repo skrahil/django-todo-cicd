@@ -5,11 +5,21 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
+  Code-Checkout:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
     - name: code checkout
       run: |
-        echo "Hi I am Madhup pandey and i have my ${{ secrets.MyPass }}. Successfully GitHub Action"
+        echo "Code checkout successfully"
+  Build-Code:
+    runs-on: ubuntu-latest
+    needs: Code-Checkout
+    steps:
+      - uses: actions/checkout@v2
+      - name: Code build
+        run: |
+          docker build -t myimage .
+          echo "Code built successfully"  
+
